@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RotatePlayer : MonoBehaviour
 {
+    // Use this without respawn balls
     public Vector3 directionToRotate;
     public float rotationSpeed;
 
@@ -13,6 +14,5 @@ public class RotatePlayer : MonoBehaviour
         {
             transform.Rotate(directionToRotate * rotationSpeed * Time.deltaTime);
         }
-        
     }
 }
