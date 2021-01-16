@@ -241,7 +241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   directionToRotate: {x: 0, y: -90, z: 0}
-  rotationSpeed: 10
+  rotationSpeed: 8
 --- !u!1 &129292511
 GameObject:
   m_ObjectHideFlags: 0
@@ -1219,7 +1219,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1822098874}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5000001
   m_Height: 2
@@ -1302,7 +1302,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0383326a4b85ef498f392cc66144509, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Ball: {fileID: 981717045904183680, guid: 43cec7f8ed34d274e934e460ae3d9667, type: 3}
 --- !u!1 &1837391632
 GameObject:
   m_ObjectHideFlags: 0
