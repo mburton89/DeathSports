@@ -10,7 +10,7 @@ public class HitBall : MonoBehaviour
     {
         if(other.tag == "Ball")
         {
-            other.GetComponent<Rigidbody>().velocity = new Vector3(Random.Range(-15, 20), Random.Range(1, 15), Random.Range(1, 40));
+            other.GetComponent<Rigidbody>().velocity = new Vector3(Random.Range(-15, 20), Random.Range(-15, 20), Random.Range(1, 50));
         }
         //Ball.velocity = new Vector3(Random.Range(-15, 20), Random.Range(1, 15), Random.Range(1, 40));
     }

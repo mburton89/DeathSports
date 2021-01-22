@@ -10,7 +10,7 @@ public class RotatePlayer : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonUp(0))
         {
             transform.Rotate(directionToRotate * rotationSpeed * Time.deltaTime);
         }
