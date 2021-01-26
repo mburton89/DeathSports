@@ -240,8 +240,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fa7518ce27b2a848b04a643cec668f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  directionToRotate: {x: 0, y: -90, z: 0}
-  rotationSpeed: 200
 --- !u!1 &129292511
 GameObject:
   m_ObjectHideFlags: 0
@@ -940,8 +938,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -30, y: 90}
-  m_SizeDelta: {x: 29.3, y: 150}
+  m_AnchoredPosition: {x: -50, y: 160}
+  m_SizeDelta: {x: 59.6, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &967682032
 GameObject:
@@ -1072,8 +1070,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -30, y: 90}
-  m_SizeDelta: {x: 29.3, y: 150}
+  m_AnchoredPosition: {x: -50, y: 160}
+  m_SizeDelta: {x: 59.6, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1034926884
 MonoBehaviour:
