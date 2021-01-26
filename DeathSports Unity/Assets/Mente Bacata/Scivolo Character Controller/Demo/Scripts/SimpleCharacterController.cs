@@ -79,6 +79,20 @@ namespace MenteBacata.ScivoloCharacterControllerDemo
 
             if (isGrounded)
             {
+                if (Input.GetKeyDown(KeyCode.Alpha1))
+                {
+                    verticalSpeed = jumpSpeed * 0.8f;
+                }
+                else if (Input.GetKeyDown(KeyCode.Alpha2))
+                {
+                    verticalSpeed = jumpSpeed * 1.2f;
+                }
+                nextUngroundedTime = -1f;
+                isGrounded = false;
+            }
+
+            if (isGrounded)
+            {
                 mover.preventMovingUpSteepSlope = true;
                 mover.canClimbSteps = true;
 
@@ -109,7 +123,6 @@ namespace MenteBacata.ScivoloCharacterControllerDemo
             if (platformDisplacement.HasValue)
                 ApplyPlatformDisplacement(platformDisplacement.Value);
         }
-        
         // Gets world space vector in respect of camera orientation from two axes input.
         private Vector3 CameraRelativeVectorFromInput(float x, float y)
         {
