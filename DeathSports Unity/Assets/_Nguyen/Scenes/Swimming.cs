@@ -33,3 +33,8 @@ public class Swimming : MonoBehaviour
         }
     }
 }
+
+// public void SetHealth(int health)
+//{
+    //slider.value = health;
+//}
