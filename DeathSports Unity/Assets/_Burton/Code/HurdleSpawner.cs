@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HurdleSpawner : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class HurdleSpawner : MonoBehaviour
         _canSpawnDouble = true;
         StartCoroutine(SpawnObject());
     }
+
 
     private IEnumerator SpawnObject()
     {

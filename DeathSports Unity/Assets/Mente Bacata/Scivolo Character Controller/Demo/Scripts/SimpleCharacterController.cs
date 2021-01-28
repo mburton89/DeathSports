@@ -85,7 +85,7 @@ namespace MenteBacata.ScivoloCharacterControllerDemo
                 }
                 else if (Input.GetKeyDown(KeyCode.Alpha2))
                 {
-                    verticalSpeed = jumpSpeed * 1.2f;
+                    verticalSpeed = jumpSpeed * 1.5f;
                 }
                 nextUngroundedTime = -1f;
                 isGrounded = false;
