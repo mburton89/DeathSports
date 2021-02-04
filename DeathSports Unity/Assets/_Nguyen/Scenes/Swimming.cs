@@ -7,6 +7,7 @@ public class Swimming : MonoBehaviour
     public KeyCode LeftArm;
     public KeyCode RightArm;
     public float swimspeed; 
+    public float torqueMultiplier; 
     private Rigidbody _rb;
 
     // Start is called before the first frame update
@@ -22,19 +23,15 @@ public class Swimming : MonoBehaviour
         {
             _rb.AddRelativeForce(Vector3.right * swimspeed);
             //Twist Right
-            _rb.AddTorque(new Vector3(0, 1, 0));
+            _rb.AddTorque(new Vector3(0, 1, 0) * torqueMultiplier);
         }
 
         else if (Input.GetKeyDown(RightArm))
         {
             _rb.AddRelativeForce(Vector3.right * swimspeed);
             //Twist Left 
-            _rb.AddTorque(new Vector3(0, -1, 0));
+            _rb.AddTorque(new Vector3(0, -1, 0) * torqueMultiplier);
         }
     }
 }
 
-// public void SetHealth(int health)
-//{
-    //slider.value = health;
-//}
