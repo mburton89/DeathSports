@@ -5,8 +5,8 @@ using UnityEngine;
 public class RotatePlayer : MonoBehaviour
 {
     // Use this without respawn balls
-    //public Vector3 directionToRotate;
-    //public float rotationSpeed;
+    public Vector3 directionToRotate;
+    public float rotationSpeed;
 
     // If anyone looks at this code, I don't know what it means either.
     IEnumerator RotateMe(Vector3 byAngles, float inTime)
@@ -29,15 +29,10 @@ public class RotatePlayer : MonoBehaviour
             // -90 is the rotation, 0.3f is the speed of the rotation
             StartCoroutine(RotateMe(Vector3.up * -90, 0.3f));
         }
+
+        /*if (Input.GetMouseButtonUp(0))
+        {
+            transform.Rotate(directionToRotate * rotationSpeed * Time.deltaTime);
+        }*/
     }
-
-
-
-
-
-
-
-
-
-
 }
