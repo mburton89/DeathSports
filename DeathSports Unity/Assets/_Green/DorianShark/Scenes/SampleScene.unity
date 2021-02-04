@@ -199,6 +199,7 @@ Light:
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
 --- !u!4 &705507995
@@ -697,7 +698,7 @@ GameObject:
   - component: {fileID: 1573495540}
   - component: {fileID: 1573495545}
   m_Layer: 0
-  m_Name: Capsule
+  m_Name: Capsule - Shark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
