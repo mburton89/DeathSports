@@ -9,6 +9,7 @@ public class HurdleObstacle : MonoBehaviour
     private Vector3 _movementDirection;
     private float _movementSpeed;
     [SerializeField] private bool _isRaptor;
+    public float explosionRandomizer;
 
     public void Init(int xDirection, float movementSpeed)
     {
@@ -26,7 +27,13 @@ public class HurdleObstacle : MonoBehaviour
             collision.gameObject.GetComponent<GroundDetector>().enabled = false;
             collision.gameObject.GetComponent<CharacterMover>().enabled = false;
             collision.gameObject.GetComponent<SimpleCharacterController>().enabled = false;
-            collision.gameObject.GetComponent<Rigidbody>().AddExplosionForce(1000f, transform.position, 50f);
+
+            float randX = Random.Range(-explosionRandomizer, explosionRandomizer);
+            float randY = Random.Range(-explosionRandomizer, explosionRandomizer);
+            float randZ = Random.Range(-explosionRandomizer, explosionRandomizer);
+            Vector3 explosionPosition = new Vector3(transform.position.x + randX, transform.position.y + randY, transform.position.z + randZ);
+
+            collision.gameObject.GetComponent<Rigidbody>().AddExplosionForce(1000f, explosionPosition, 50f);
             collision.gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * 400f);
             HurdlesGameManager.Instance.Restart();
         }
@@ -36,6 +43,8 @@ public class HurdleObstacle : MonoBehaviour
             Instantiate(Resources.Load("Explosion") as GameObject, transform.position, transform.rotation, null);
             Destroy(gameObject);
         }
+
+        HurdlesSoundManager.Instance.splode.Play();
     }
 
     void Update()

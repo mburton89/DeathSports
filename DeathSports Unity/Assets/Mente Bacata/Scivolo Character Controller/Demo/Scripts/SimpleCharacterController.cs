@@ -3,9 +3,10 @@
 using MenteBacata.ScivoloCharacterController;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 namespace MenteBacata.ScivoloCharacterControllerDemo
-{
+{ 
     public class SimpleCharacterController : MonoBehaviour
     {
         public float moveSpeed = 5f;
@@ -40,10 +41,13 @@ namespace MenteBacata.ScivoloCharacterControllerDemo
 
         private float GroundClampSpeed => -Mathf.Tan(Mathf.Deg2Rad * mover.maxFloorAngle) * moveSpeed;
 
+        public List<float> slotPositions;
+        private int _currentSlot;
 
         private void Start()
         {
             cameraTransform = Camera.main.transform;
+            _currentSlot = 1;
         }
 
         private void Update()
@@ -79,13 +83,30 @@ namespace MenteBacata.ScivoloCharacterControllerDemo
 
             if (isGrounded)
             {
-                if (Input.GetKeyDown(KeyCode.Alpha1))
+                if (Input.GetKeyDown(KeyCode.LeftArrow))
                 {
                     verticalSpeed = jumpSpeed * 0.8f;
+                    if (HurdlesSoundManager.Instance != null)
+                    {
+                        HurdlesSoundManager.Instance.jump.Play();
+                    }
                 }
-                else if (Input.GetKeyDown(KeyCode.Alpha2))
+                else if (Input.GetKeyDown(KeyCode.RightArrow))
                 {
                     verticalSpeed = jumpSpeed * 1.5f;
+                    if (HurdlesSoundManager.Instance != null)
+                    {
+                        HurdlesSoundManager.Instance.jump.Play();
+                    }
+                }
+
+                if (Input.GetKeyDown(KeyCode.UpArrow))
+                {
+                    MoveUpSlot();
+                }
+                else if (Input.GetKeyDown(KeyCode.DownArrow))
+                {
+                    MoveDownSlot();
                 }
                 nextUngroundedTime = -1f;
                 isGrounded = false;
@@ -122,6 +143,20 @@ namespace MenteBacata.ScivoloCharacterControllerDemo
 
             if (platformDisplacement.HasValue)
                 ApplyPlatformDisplacement(platformDisplacement.Value);
+        }
+
+        void MoveUpSlot()
+        {
+            if (_currentSlot == 2) return;
+            _currentSlot++;
+            transform.DOLocalMoveZ(slotPositions[_currentSlot], .25f);
+        }
+
+        void MoveDownSlot()
+        {
+            if (_currentSlot == 0) return;
+            _currentSlot--;
+            transform.DOLocalMoveZ(slotPositions[_currentSlot], .25f);
         }
         // Gets world space vector in respect of camera orientation from two axes input.
         private Vector3 CameraRelativeVectorFromInput(float x, float y)

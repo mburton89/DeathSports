@@ -45,7 +45,7 @@ Transform:
   m_GameObject: {fileID: 8629252959368267252}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -8.58, y: 0.16552472, z: -3.68}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 9178701984625818921}
   m_Father: {fileID: 0}
@@ -111,7 +111,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.18, y: 1, z: 1}
+  m_Size: {x: 2.18, y: 1, z: 0.61}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8974827856873864393
 MonoBehaviour:
@@ -126,6 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isRaptor: 1
+  explosionRandomizer: 0
 --- !u!54 &7338629702792857852
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -153,7 +154,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.78, y: 0.4, z: 1}
+  m_Size: {x: 0.78, y: 0.4, z: 0.57}
   m_Center: {x: 1.39, y: 0.78, z: 0}
 --- !u!1001 &8713328038235216578
 PrefabInstance:

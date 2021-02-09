@@ -12,8 +12,6 @@ public class HurdlesGameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _currentScoreText;
     private int _currentScore;
 
-    private const string HIGH_SCORE_LABEL = "High Score: ";
-
     void Awake()
     {
         Instance = this;
@@ -21,7 +19,7 @@ public class HurdlesGameManager : MonoBehaviour
 
     void Start()
     {
-        _highScoreText.SetText(HIGH_SCORE_LABEL + PlayerPrefs.GetInt("HurdlesHighScore"));
+        _highScoreText.SetText(PlayerPrefs.GetInt("HurdlesHighScore").ToString());
         _currentScore = 0;
     }
 
@@ -44,7 +42,7 @@ public class HurdlesGameManager : MonoBehaviour
         if (_currentScore > PlayerPrefs.GetInt("HurdlesHighScore"))
         {
             PlayerPrefs.SetInt("HurdlesHighScore", _currentScore);
-            _highScoreText.SetText(HIGH_SCORE_LABEL + _currentScore);
+            _highScoreText.SetText(_currentScore.ToString());
         }
     }
 }
