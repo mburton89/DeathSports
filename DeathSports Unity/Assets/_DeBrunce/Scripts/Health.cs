@@ -1,24 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.UI; 
 
 public class Health : MonoBehaviour
 {
     public int health;
-    public int numOfHealth;
+    public int numOfHearts;
 
     public Image[] hearts;
     public Sprite fullHeart;
-    public Sprite emptyHeart;
-
 
     private void Update()
     {
-        if (health > numOfHealth)
+        if (health > numOfHearts)
         {
-            health = numOfHealth;
+            health = numOfHearts;
         }
+
 
         for (int i = 0; i < hearts.Length; i++)
         {
@@ -26,14 +25,10 @@ public class Health : MonoBehaviour
             {
                 hearts[i].sprite = fullHeart;
             }
-            else
-            {
-                hearts[i].sprite = emptyHeart;
-            }
 
-            if (i < numOfHealth)
+            if (i < numOfHearts)
             {
-                hearts[i].enabled = true; 
+                hearts[i].enabled = true;
             }
             else
             {
@@ -41,5 +36,10 @@ public class Health : MonoBehaviour
             }
         }
     }
+
+
+
+
+
 
 }

@@ -657,17 +657,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1672942646}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57fb66cd1ea05fc47a6f7289798d338c, type: 3}
+  m_Script: {fileID: 11500000, guid: 8a88292828d870c4fa0a9120fb400cfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
-  numOfHealth: 3
+  numOfHearts: 3
   hearts:
   - {fileID: 2111163174}
   - {fileID: 589931030}
   - {fileID: 353848949}
   fullHeart: {fileID: 21300000, guid: bd0bbd63efb25d84aa880f8c539ecaf3, type: 3}
-  emptyHeart: {fileID: 21300000, guid: 81e0da9fdabeb7247852b9d13c4b287a, type: 3}
 --- !u!1 &2111163172
 GameObject:
   m_ObjectHideFlags: 0
