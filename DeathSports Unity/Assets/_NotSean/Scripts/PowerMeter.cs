@@ -21,6 +21,11 @@ public class PowerMeter : MonoBehaviour
         {
             PowerActive();
         }
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            StartCoroutine(Delay());
+        }
     }
 
     void PowerActive()
@@ -58,5 +63,12 @@ public class PowerMeter : MonoBehaviour
     public void EndPowerUp()
     {
         isPowerUp = false;
+    }
+
+    IEnumerator Delay()
+    {
+        yield return new WaitForSeconds(1.3f);
+        imagePowerUp.fillAmount = 0;
+        amountPower = 0.0f;
     }
 }

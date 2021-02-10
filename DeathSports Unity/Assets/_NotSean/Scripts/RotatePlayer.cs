@@ -7,6 +7,7 @@ public class RotatePlayer : MonoBehaviour
     // Use this without respawn balls
     public Vector3 directionToRotate;
     public float rotationSpeed;
+    public float delayTime = 1.0f;
 
     // If anyone looks at this code, I don't know what it means either.
     IEnumerator RotateMe(Vector3 byAngles, float inTime)
@@ -18,21 +19,30 @@ public class RotatePlayer : MonoBehaviour
             transform.rotation = Quaternion.Slerp(fromAngle, toAngle, t);
             yield return null;
         }
+
+        // Delay until Joe Baseball goes back to original position
+        yield return new WaitForSeconds(delayTime);
+
+        // Joe Baseball's original position
+        transform.rotation = Quaternion.Euler(new Vector3(0, 50, 0));
     }
 
     void Update()
     {
         if (Input.GetMouseButtonUp(0))
         {
-            //transform.Rotate(directionToRotate * rotationSpeed * Time.deltaTime);
-
             // -90 is the rotation, 0.3f is the speed of the rotation
             StartCoroutine(RotateMe(Vector3.up * -90, 0.3f));
         }
+    }
 
-        /*if (Input.GetMouseButtonUp(0))
-        {
-            transform.Rotate(directionToRotate * rotationSpeed * Time.deltaTime);
-        }*/
+    IEnumerator resetPlayerPosition()
+    {
+        yield return new WaitForSeconds(delayTime);
+    }
+
+    void resetPlayer()
+    {
+        transform.Rotate(directionToRotate * rotationSpeed * Time.deltaTime);
     }
 }
