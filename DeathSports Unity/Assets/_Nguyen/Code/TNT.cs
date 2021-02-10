@@ -22,6 +22,7 @@ public class TNT : MonoBehaviour
         {
             print("BOOM!");
             Detonate();
+            Destroy(gameObject);
         }
     }
 
