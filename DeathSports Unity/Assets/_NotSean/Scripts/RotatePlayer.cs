@@ -27,17 +27,6 @@ public class RotatePlayer : MonoBehaviour
         transform.rotation = Quaternion.Euler(new Vector3(0, 50, 0));
     }
 
-    IEnumerator unRotateMe(Vector3 byAngles, float inTime)
-    {
-        var fromAngle = transform.rotation;
-        var toAngle = Quaternion.Euler(transform.eulerAngles + byAngles);
-        for (var t = 0f; t < 1; t += Time.deltaTime / inTime)
-        {
-            transform.rotation = Quaternion.Slerp(fromAngle, toAngle, t);
-            yield return null;
-        }
-    }
-
     void Update()
     {
         if (Input.GetMouseButtonUp(0))
