@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Swimming : MonoBehaviour
+public class Swimmer : MonoBehaviour
 {
     public KeyCode LeftArm;
     public KeyCode RightArm;
@@ -15,6 +15,11 @@ public class Swimming : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody>();
     }
+
+    public void CompleteLevel()
+    {
+        print("You Won!");
+    }    
 
     // Update is called once per frame
     void Update()
@@ -32,6 +37,7 @@ public class Swimming : MonoBehaviour
             //Twist Left 
             _rb.AddTorque(new Vector3(0, -1, 0) * torqueMultiplier);
         }
+
     }
 }
 
