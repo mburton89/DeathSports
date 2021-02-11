@@ -9,6 +9,8 @@ public class HurdlesSoundManager : MonoBehaviour
     public AudioSource jump;
     public AudioSource splode;
 
+    public List<AudioSource> announcerDeathLines; 
+
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
@@ -20,5 +22,11 @@ public class HurdlesSoundManager : MonoBehaviour
         {
             Instance = this;
         }
+    }
+
+    public void PlayRandomAnnouncerDeathLine()
+    {
+        int rand = Random.Range(0, announcerDeathLines.Count);
+        announcerDeathLines[rand].Play();
     }
 }

@@ -2499,7 +2499,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!81 &1533092626
 AudioListener:
   m_ObjectHideFlags: 0
@@ -2732,6 +2732,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9181768659294148466, guid: 1a5b458c14f954c49bbc9dfda0a13dbc, type: 3}
       propertyPath: _movementSpeed
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 9181768659294148466, guid: 1a5b458c14f954c49bbc9dfda0a13dbc, type: 3}
+      propertyPath: movementSpeed
       value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
