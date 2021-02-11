@@ -8,6 +8,7 @@ public class TNT : MonoBehaviour
     public float boom = 10.0f;
     public float radius = 5.0f;
     public float upForce = 1.0f;
+    public Swimmer swimmer;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +23,7 @@ public class TNT : MonoBehaviour
         {
             print("BOOM!");
             Detonate();
-            Destroy(gameObject);
+            swimmer.enabled = false;
         }
     }
 

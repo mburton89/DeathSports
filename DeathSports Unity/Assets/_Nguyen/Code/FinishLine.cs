@@ -6,10 +6,12 @@ public class FinishLine : MonoBehaviour
 
 {
     public GameObject Goal;
-    private void OnTriggerEnter(Collider collision)
+    public GameManager gameManager;
+    public Swimmer swimmer;
+    void OnTriggerEnter(Collider collider)
     {
-      //GameObject hitbox = Collider.gameObject;
-        print("YOU WIN");
+        gameManager.CompleteLevel();
+        swimmer.enabled = false;
 
     }
 }
