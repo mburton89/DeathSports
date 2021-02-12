@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/_DeBrunce/Scenes/Main Menu.unity
     guid: 65eeea9f711cadd4cb48bd26943333ad
   - enabled: 1
-    path: Assets/_NotSean/BaseballPrototype.unity
+    path: Assets/_NotSean/Scenes/AutoAimBaseball.unity
     guid: 519f0d2d3bc599646b0cc9182f6d86ef
   m_configObjects: {}
