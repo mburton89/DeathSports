@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AutoAimExample : MonoBehaviour
 {
@@ -9,10 +10,11 @@ public class AutoAimExample : MonoBehaviour
     public float hitSpeed;
     public float yForce;
     public float leadMultiplier;
+    public Image powerMeter;
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetMouseButtonUp(0))
         {
             HitBallAtTarget();
         }
@@ -35,7 +37,7 @@ public class AutoAimExample : MonoBehaviour
 
         Vector3 directionToHit = targetPosition - transform.position;
         GameObject newAutoAimBall = Instantiate(autoAimBallPrefab, transform.position, transform.rotation, null) as GameObject;
-        newAutoAimBall.GetComponent<Rigidbody>().AddForce(directionToHit.normalized * hitSpeed);
+        newAutoAimBall.GetComponent<Rigidbody>().AddForce(directionToHit.normalized * hitSpeed * powerMeter.fillAmount);
         newAutoAimBall.GetComponent<Rigidbody>().AddForce(Vector3.up * (yForce * Mathf.Abs(directionToHit.magnitude)));
         Destroy(newAutoAimBall, 3);
     }
