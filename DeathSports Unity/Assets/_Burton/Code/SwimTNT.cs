@@ -24,6 +24,7 @@ public class SwimTNT : MonoBehaviour
             collision.gameObject.GetComponent<Swimmer>().enabled = false;
             //TODO Play Explosion Sound
             //TODO Restart the scene after 2 seconds
+            SwimGameManager.Instance.Restart();
 
         }
     }

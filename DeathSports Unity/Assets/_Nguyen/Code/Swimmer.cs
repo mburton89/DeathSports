@@ -39,6 +39,7 @@ public class Swimmer : MonoBehaviour
             _rb.AddTorque(new Vector3(0, -1, 0) * torqueMultiplier);
         }
 
+        SwimHUD.Instance.UpdateFillBar(transform.position.x);
     }
 }
 

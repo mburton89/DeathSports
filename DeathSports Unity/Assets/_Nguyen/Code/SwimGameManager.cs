@@ -7,26 +7,21 @@ using UnityEngine.SceneManagement;
 public class SwimGameManager : MonoBehaviour
 {
     public static SwimGameManager Instance;
-    bool gameHasEnded = false;
-    public float restartDelay = 1f;
+    public float restartDelay = 2f;
     public GameObject completeLevelUI;
     public void CompleteLevel()
     {
         Debug.Log("Level WON!");
         completeLevelUI.SetActive(true);
     }
-
- 
-
-    public void EndGame()
+    private void Awake()
     {
-       if (gameHasEnded == true)
-        {
-           gameHasEnded = true;
-           print("Game Over!");
-           Invoke("Restart Game", restartDelay);
-        }
+        Instance = this;
     }
+
+
+    //public void EndGame()
+
     public void Restart()
     {
         StartCoroutine(RestartCo());
