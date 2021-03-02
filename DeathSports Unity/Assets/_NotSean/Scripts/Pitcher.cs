@@ -3,18 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class AutoAimExample : MonoBehaviour
+public class Pitcher : MonoBehaviour
 {
-    public Transform target;
+    public Transform targetPlayer;
     public GameObject autoAimBallPrefab;
     public float hitSpeed;
     public float yForce;
-    public float leadMultiplier;
+    public float SpawnTime = 3f;
 
-    void Update()
+    private void Start()
     {
-        if (Input.GetMouseButtonUp(1))
+        StartCoroutine(BaseballGenerator());
+    }
+
+    IEnumerator BaseballGenerator()
+    {
+        while (true)
         {
+            yield return new WaitForSeconds(SpawnTime);
             HitBallAtTarget();
         }
     }
@@ -23,21 +29,20 @@ public class AutoAimExample : MonoBehaviour
     {
         //Figure out where Target will be
         Vector3 targetPosition = new Vector3();
-        if (target.GetComponent<AutoAimTarget>())
+        if (targetPlayer.GetComponent<AutoAimTarget>())
         {
             float leadMultiplierMultiplier;
-            leadMultiplierMultiplier = (target.position - transform.position).magnitude;
-            targetPosition = target.position + (target.GetComponent<AutoAimTarget>().directionMovingTowards * (leadMultiplier * Mathf.Abs(leadMultiplierMultiplier)));
+            leadMultiplierMultiplier = (targetPlayer.position - transform.position).magnitude;
+            targetPosition = targetPlayer.position + (targetPlayer.GetComponent<AutoAimTarget>().directionMovingTowards * (Mathf.Abs(leadMultiplierMultiplier)));
         }
         else
         {
-            targetPosition = target.position;
+            targetPosition = targetPlayer.position;
         }
 
         Vector3 directionToHit = targetPosition - transform.position;
         GameObject newAutoAimBall = Instantiate(autoAimBallPrefab, transform.position, transform.rotation, null) as GameObject;
         newAutoAimBall.GetComponent<Rigidbody>().AddForce(directionToHit.normalized * hitSpeed);
         newAutoAimBall.GetComponent<Rigidbody>().AddForce(Vector3.up * (yForce * Mathf.Abs(directionToHit.magnitude)));
-        Destroy(newAutoAimBall, 3);
     }
 }

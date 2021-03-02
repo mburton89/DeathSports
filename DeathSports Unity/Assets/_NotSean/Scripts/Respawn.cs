@@ -17,7 +17,7 @@ public class Respawn : MonoBehaviour
         GameObject gameRef = Instantiate(BaseballPrefab) as GameObject;
         gameRef.name = "Ball";
 
-        gameRef.transform.position = new Vector3(258.73f, 1.8f, 286.143f);
+        gameRef.transform.position = new Vector3(258.73f, 2.8f, 286.143f);
     }
 
     IEnumerator BaseballGenerator()
