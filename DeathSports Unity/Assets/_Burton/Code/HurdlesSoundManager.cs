@@ -8,8 +8,11 @@ public class HurdlesSoundManager : MonoBehaviour
     public AudioSource music;
     public AudioSource jump;
     public AudioSource splode;
+    public AudioSource shortjump;
+   
 
-    public List<AudioSource> announcerDeathLines; 
+    public List<AudioSource> announcerDeathLines;
+    public List<AudioSource> announcerRaptorLines;
 
     private void Awake()
     {
@@ -28,5 +31,12 @@ public class HurdlesSoundManager : MonoBehaviour
     {
         int rand = Random.Range(0, announcerDeathLines.Count);
         announcerDeathLines[rand].Play();
+        //replace  announcerDeathLines with annoucerRaptorDeathLines
+    }
+    public void PlayRandomRaptorDeathLine()
+    {
+        int rand = Random.Range(0, announcerRaptorLines.Count);
+        announcerRaptorLines[rand].Play();
+        //replace  announcerDeathLines with annoucerRaptorDeathLines
     }
 }

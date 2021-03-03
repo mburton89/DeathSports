@@ -740,6 +740,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isRaptor: 0
+  _isHurdle: 1
   explosionRandomizer: 2
 --- !u!54 &1963557124631950863
 Rigidbody:

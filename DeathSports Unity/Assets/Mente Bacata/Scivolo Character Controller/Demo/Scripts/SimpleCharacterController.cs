@@ -85,10 +85,10 @@ namespace MenteBacata.ScivoloCharacterControllerDemo
             {
                 if (Input.GetKeyDown(KeyCode.LeftArrow))
                 {
-                    verticalSpeed = jumpSpeed * 0.8f;
+                    verticalSpeed = jumpSpeed * 1.0f;
                     if (HurdlesSoundManager.Instance != null)
                     {
-                        HurdlesSoundManager.Instance.jump.Play();
+                        HurdlesSoundManager.Instance.shortjump.Play();
                     }
                 }
                 else if (Input.GetKeyDown(KeyCode.RightArrow))

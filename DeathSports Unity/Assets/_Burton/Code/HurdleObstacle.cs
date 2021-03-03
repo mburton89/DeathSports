@@ -9,6 +9,7 @@ public class HurdleObstacle : MonoBehaviour
     private Vector3 _movementDirection;
     private float _movementSpeed;
     [SerializeField] private bool _isRaptor;
+    [SerializeField] private bool _isHurdle;
     public float explosionRandomizer;
 
     public void Init(int xDirection, float movementSpeed)
@@ -38,13 +39,26 @@ public class HurdleObstacle : MonoBehaviour
             HurdlesGameManager.Instance.Restart();
         }
 
-        if (collision.gameObject.GetComponent<HurdleObstacle>() && !_isRaptor)
+        if (collision.gameObject.GetComponent<HurdleObstacle>()  && !_isRaptor)
         {
             Instantiate(Resources.Load("Explosion") as GameObject, transform.position, transform.rotation, null);
             Destroy(gameObject);
         }
 
         HurdlesSoundManager.Instance.splode.Play();
+
+        if (collision.gameObject.GetComponent<HurdleObstacle>()._isRaptor) //(_isRaptor)//
+        {
+            //play a raptor line 
+            HurdlesSoundManager.Instance.PlayRandomRaptorDeathLine();
+        }
+
+        else if (!collision.gameObject.GetComponent<HurdleObstacle>()._isHurdle)
+       
+        {
+            HurdlesSoundManager.Instance.PlayRandomAnnouncerDeathLine();
+            Debug.Log("Player died");
+        }
     }
 
     void Update()
