@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class TNTSpawner : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private GameObject _tntPrefab;
+    [SerializeField] private int _numberOfTNTToSpawn;
+    [SerializeField] private int _maxX;
+    [SerializeField] private int _maxY;
+    [SerializeField] private int _z; //Set this to whatever Z TNT in the scene is set to
+
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        for (int i = 0; i < _numberOfTNTToSpawn; i++)
+        {
+            float randX = Random.Range(-_maxX, _maxX);
+            float randY = Random.Range(-_maxY, _maxY);
+            Vector3 spawnPosition = new Vector3(randX, randY, _z);
+            Instantiate(_tntPrefab, spawnPosition, transform.rotation, null);
+        }
     }
 }
