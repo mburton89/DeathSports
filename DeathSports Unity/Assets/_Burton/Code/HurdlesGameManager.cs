@@ -30,7 +30,7 @@ public class HurdlesGameManager : MonoBehaviour
 
     private IEnumerator RestartCo()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(3);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 

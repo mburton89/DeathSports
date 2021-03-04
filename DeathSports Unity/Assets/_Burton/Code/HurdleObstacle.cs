@@ -37,6 +37,17 @@ public class HurdleObstacle : MonoBehaviour
             collision.gameObject.GetComponent<Rigidbody>().AddExplosionForce(1000f, explosionPosition, 50f);
             collision.gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * 400f);
             HurdlesGameManager.Instance.Restart();
+
+
+            if (_isRaptor) //(_isRaptor)//
+            {
+                //play a raptor line 
+                HurdlesSoundManager.Instance.PlayRandomRaptorDeathLine();
+            }
+            else
+            {
+                HurdlesSoundManager.Instance.PlayRandomAnnouncerDeathLine();
+            }
         }
 
         if (collision.gameObject.GetComponent<HurdleObstacle>()  && !_isRaptor)
@@ -46,19 +57,6 @@ public class HurdleObstacle : MonoBehaviour
         }
 
         HurdlesSoundManager.Instance.splode.Play();
-
-        if (collision.gameObject.GetComponent<HurdleObstacle>()._isRaptor) //(_isRaptor)//
-        {
-            //play a raptor line 
-            HurdlesSoundManager.Instance.PlayRandomRaptorDeathLine();
-        }
-
-        else if (!collision.gameObject.GetComponent<HurdleObstacle>()._isHurdle)
-       
-        {
-            HurdlesSoundManager.Instance.PlayRandomAnnouncerDeathLine();
-            Debug.Log("Player died");
-        }
     }
 
     void Update()
