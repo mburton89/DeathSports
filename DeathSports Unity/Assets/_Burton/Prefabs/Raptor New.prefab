@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 195420475297398866}
   - component: {fileID: 2650138811472356567}
   m_Layer: 0
-  m_Name: Raptor 1
+  m_Name: Raptor New
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -158,3 +158,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isRaptor: 1
+  explosionRandomizer: 0
