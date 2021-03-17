@@ -8,6 +8,9 @@ public class SuperSmartCamera : MonoBehaviour
 
     void Update()
     {
-        transform.position = new Vector3(_target.position.x, transform.position.y, transform.position.z);
+        if (_target != null)
+        {
+            transform.position = new Vector3(_target.position.x, transform.position.y, transform.position.z);
+        }
     }
 }

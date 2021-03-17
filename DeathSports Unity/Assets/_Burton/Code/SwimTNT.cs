@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class SwimTNT : MonoBehaviour
 {
@@ -22,6 +24,9 @@ public class SwimTNT : MonoBehaviour
             collision.gameObject.GetComponent<Swimmer>().enabled = false;
             //TODO Play Explosion Sound
             //TODO Restart the scene after 2 seconds
+            SwimGameManager.Instance.Restart();
+
         }
     }
 }
+
