@@ -22,7 +22,7 @@ public class HitBall : MonoBehaviour
     {
         if(other.tag == "Ball")
         {
-            HitBallAtTargetMultiple();
+            HitBallAtTargetMultiple(other.gameObject); //hits curent ball
         }
     }
 
@@ -48,6 +48,7 @@ public class HitBall : MonoBehaviour
         Destroy(newAutoAimBall, 3);
     }*/
 
+    //creates new ball
     void HitBallAtTargetMultiple()
     {
         Vector3 targetPosition = new Vector3();
@@ -67,5 +68,29 @@ public class HitBall : MonoBehaviour
         newAutoAimBall.GetComponent<Rigidbody>().AddForce(directionToHit.normalized * hitSpeed * powerMeter.fillAmount);
         newAutoAimBall.GetComponent<Rigidbody>().AddForce(Vector3.up * (yForce * Mathf.Abs(directionToHit.magnitude)));
         Destroy(newAutoAimBall, 3);
+    }
+
+    //hits current ball
+    void HitBallAtTargetMultiple(GameObject ballToHit)
+    {
+        Rigidbody ballRigidbody = ballToHit.GetComponent<Rigidbody>();
+        ballRigidbody.velocity = Vector3.zero;
+
+        Vector3 targetPosition = new Vector3();
+        if (target[randomTarget].GetComponent<AutoAimTarget>())
+        {
+            float leadMultiplierMultiplier;
+            leadMultiplierMultiplier = (target[randomTarget].position - transform.position).magnitude;
+            targetPosition = target[randomTarget].position + (target[randomTarget].GetComponent<AutoAimTarget>().directionMovingTowards * (leadMultiplier * Mathf.Abs(leadMultiplierMultiplier)));
+        }
+        else
+        {
+            targetPosition = target[randomTarget].position;
+        }
+
+        Vector3 directionToHit = targetPosition - transform.position;
+        ballRigidbody.AddForce(directionToHit.normalized * hitSpeed * powerMeter.fillAmount);
+        ballRigidbody.AddForce(Vector3.up * (yForce * Mathf.Abs(directionToHit.magnitude)));
+        Destroy(ballToHit, 3);
     }
 }
