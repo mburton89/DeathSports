@@ -2223,7 +2223,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stadiumSlicePrefab: {fileID: 9181768659294148466, guid: 1a5b458c14f954c49bbc9dfda0a13dbc, type: 3}
   _stadiumSliceSpawnPoint: {fileID: 1440477290}
-  _spawnRate: 2
+  _spawnRate: 4
   _objectSpeed: 7
 --- !u!4 &1639455636
 Transform:
