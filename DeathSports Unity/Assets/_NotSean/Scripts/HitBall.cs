@@ -26,7 +26,7 @@ public class HitBall : MonoBehaviour
     {
         if (other.tag == "Ball")
         {
-            //HitBallAtTargetMultiple();
+            HitBallAtTargetMultiple(other.gameObject);
             if (CamMode == 1)
             {
                 CamMode = 0;
@@ -63,8 +63,11 @@ public class HitBall : MonoBehaviour
         Destroy(newAutoAimBall, 3);
     }*/
 
-    void HitBallAtTargetMultiple()
+    void HitBallAtTargetMultiple(GameObject ballToHit)
     {
+        Rigidbody ballRigidbody = ballToHit.GetComponent<Rigidbody>();
+        ballRigidbody.velocity = Vector3.zero;
+
         Vector3 targetPosition = new Vector3();
         if (target[randomTarget].GetComponent<AutoAimTarget>())
         {
@@ -78,10 +81,9 @@ public class HitBall : MonoBehaviour
         }
 
         Vector3 directionToHit = targetPosition - transform.position;
-        GameObject newAutoAimBall = Instantiate(autoAimBallPrefab, transform.position, transform.rotation, null) as GameObject;
-        newAutoAimBall.GetComponent<Rigidbody>().AddForce(directionToHit.normalized * hitSpeed * powerMeter.fillAmount);
-        newAutoAimBall.GetComponent<Rigidbody>().AddForce(Vector3.up * (yForce * Mathf.Abs(directionToHit.magnitude)));
-        Destroy(newAutoAimBall, 3);
+        ballRigidbody.AddForce(directionToHit.normalized * hitSpeed * powerMeter.fillAmount);
+        ballRigidbody.AddForce(Vector3.up * (yForce * Mathf.Abs(directionToHit.magnitude)));
+        Destroy(ballToHit, 3);
     }
 
     IEnumerator ToggleCamera()
