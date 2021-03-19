@@ -18,14 +18,29 @@ public class HitBall : MonoBehaviour
     public float yForce;
     public float leadMultiplier;
 
+    public GameObject MainCam;
+    public GameObject BallCam;
+    public int CamMode;
+
     void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Ball")
+        if (other.tag == "Ball")
         {
-            HitBallAtTargetMultiple();
+            //HitBallAtTargetMultiple();
+            if (CamMode == 1)
+            {
+                CamMode = 0;
+            }
+            else
+            {
+                CamMode += 1;
+            }
+            StartCoroutine(ToggleCamera());
         }
     }
 
+
+    // No Array
     /*void HitBallAtTarget()
     {
         //Figure out where Target will be
@@ -67,5 +82,20 @@ public class HitBall : MonoBehaviour
         newAutoAimBall.GetComponent<Rigidbody>().AddForce(directionToHit.normalized * hitSpeed * powerMeter.fillAmount);
         newAutoAimBall.GetComponent<Rigidbody>().AddForce(Vector3.up * (yForce * Mathf.Abs(directionToHit.magnitude)));
         Destroy(newAutoAimBall, 3);
+    }
+
+    IEnumerator ToggleCamera()
+    {
+        yield return new WaitForSeconds(0.01f);
+        if (CamMode == 0)
+        {
+            MainCam.SetActive(true);
+            BallCam.SetActive(false);
+        }
+        if (CamMode == 1)
+        {
+            MainCam.SetActive(false);
+            BallCam.SetActive(true);
+        }
     }
 }
