@@ -23,9 +23,9 @@ public class AiPatrol : MonoBehaviour
     {
         transform.position = Vector3.MoveTowards(transform.position, moveSpots[randomSpot].position, speed * Time.deltaTime);
 
-        if(Vector3.Distance(transform.position, moveSpots[randomSpot].position) < 0.2f)
+        if (Vector3.Distance(transform.position, moveSpots[randomSpot].position) < 0.1f)
         {
-            if(waitTime <= 0)
+            if (waitTime <= 0)
             {
                 randomSpot = Random.Range(0, moveSpots.Length);
                 waitTime = startWaitTime;

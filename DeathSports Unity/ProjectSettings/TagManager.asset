@@ -6,7 +6,7 @@ TagManager:
   tags:
   - Ball
   - Hurdle
-  - Laser
+  - Target
   layers:
   - Default
   - TransparentFX
