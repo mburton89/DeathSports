@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class AutoAimTarget : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class AutoAimTarget : MonoBehaviour
         {
             Instantiate(Resources.Load("Explosion") as GameObject, transform.position, transform.rotation, null);
             Destroy(transform.parent.gameObject);
+            PeopleHit.scoreValue++;
         }
     }
 
@@ -30,6 +32,7 @@ public class AutoAimTarget : MonoBehaviour
         {
             Instantiate(Resources.Load("Explosion") as GameObject, transform.position, transform.rotation, null);
             Destroy(transform.parent.gameObject);
+            PeopleHit.scoreValue++;
         }
     }
 }

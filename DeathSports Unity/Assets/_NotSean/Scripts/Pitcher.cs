@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Pitcher : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class Pitcher : MonoBehaviour
 
     public Animator anim;
 
-    private void Start()
+    void Start()
     {
         StartCoroutine(BaseballGenerator());
 
@@ -29,6 +30,7 @@ public class Pitcher : MonoBehaviour
         {
             yield return new WaitForSeconds(SpawnTime);
             anim.Play("PitcherPitch");
+            BallsPitchedCounter.scoreValue1++;
             yield return new WaitForSeconds(AnimationDelay);
             HitBallAtTarget();
         }

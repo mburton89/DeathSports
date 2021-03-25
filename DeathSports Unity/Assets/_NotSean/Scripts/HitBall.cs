@@ -35,7 +35,7 @@ public class HitBall : MonoBehaviour
             {
                 CamMode += 1;
             }
-            StartCoroutine(ToggleCamera());
+            //StartCoroutine(ToggleCamera());
         }
     }
 
@@ -86,7 +86,7 @@ public class HitBall : MonoBehaviour
         Destroy(ballToHit, 3);
     }
 
-    IEnumerator ToggleCamera()
+    /*IEnumerator ToggleCamera()
     {
         yield return new WaitForSeconds(0.01f);
         if (CamMode == 0)
@@ -99,5 +99,5 @@ public class HitBall : MonoBehaviour
             MainCam.SetActive(false);
             BallCam.SetActive(true);
         }
-    }
+    }*/
 }
