@@ -18,14 +18,29 @@ public class HitBall : MonoBehaviour
     public float yForce;
     public float leadMultiplier;
 
+    public GameObject MainCam;
+    public GameObject BallCam;
+    public int CamMode;
+
     void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Ball")
+        if (other.tag == "Ball")
         {
-            HitBallAtTargetMultiple(other.gameObject); //hits curent ball
+            HitBallAtTargetMultiple(other.gameObject);
+            if (CamMode == 1)
+            {
+                CamMode = 0;
+            }
+            else
+            {
+                CamMode += 1;
+            }
+            //StartCoroutine(ToggleCamera());
         }
     }
 
+
+    // No Array
     /*void HitBallAtTarget()
     {
         //Figure out where Target will be
@@ -48,29 +63,6 @@ public class HitBall : MonoBehaviour
         Destroy(newAutoAimBall, 3);
     }*/
 
-    //creates new ball
-    void HitBallAtTargetMultiple()
-    {
-        Vector3 targetPosition = new Vector3();
-        if (target[randomTarget].GetComponent<AutoAimTarget>())
-        {
-            float leadMultiplierMultiplier;
-            leadMultiplierMultiplier = (target[randomTarget].position - transform.position).magnitude;
-            targetPosition = target[randomTarget].position + (target[randomTarget].GetComponent<AutoAimTarget>().directionMovingTowards * (leadMultiplier * Mathf.Abs(leadMultiplierMultiplier)));
-        }
-        else
-        {
-            targetPosition = target[randomTarget].position;
-        }
-
-        Vector3 directionToHit = targetPosition - transform.position;
-        GameObject newAutoAimBall = Instantiate(autoAimBallPrefab, transform.position, transform.rotation, null) as GameObject;
-        newAutoAimBall.GetComponent<Rigidbody>().AddForce(directionToHit.normalized * hitSpeed * powerMeter.fillAmount);
-        newAutoAimBall.GetComponent<Rigidbody>().AddForce(Vector3.up * (yForce * Mathf.Abs(directionToHit.magnitude)));
-        Destroy(newAutoAimBall, 3);
-    }
-
-    //hits current ball
     void HitBallAtTargetMultiple(GameObject ballToHit)
     {
         Rigidbody ballRigidbody = ballToHit.GetComponent<Rigidbody>();
@@ -93,4 +85,19 @@ public class HitBall : MonoBehaviour
         ballRigidbody.AddForce(Vector3.up * (yForce * Mathf.Abs(directionToHit.magnitude)));
         Destroy(ballToHit, 3);
     }
+
+    /*IEnumerator ToggleCamera()
+    {
+        yield return new WaitForSeconds(0.01f);
+        if (CamMode == 0)
+        {
+            MainCam.SetActive(true);
+            BallCam.SetActive(false);
+        }
+        if (CamMode == 1)
+        {
+            MainCam.SetActive(false);
+            BallCam.SetActive(true);
+        }
+    }*/
 }
