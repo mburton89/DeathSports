@@ -44,6 +44,8 @@ namespace MenteBacata.ScivoloCharacterControllerDemo
         public List<float> slotPositions;
         private int _currentSlot;
 
+        public Animator animationController;
+
         private void Start()
         {
             cameraTransform = Camera.main.transform;
@@ -58,6 +60,17 @@ namespace MenteBacata.ScivoloCharacterControllerDemo
             Vector3 moveDirection = CameraRelativeVectorFromInput(horizontalInput, verticalInput);
 
             UpdateMovement(moveDirection, Time.deltaTime);
+        }
+
+        private void OnCollisionEnter(Collision collision)
+        {
+            print(collision.gameObject);
+
+            if (collision.gameObject.tag == "Ground")
+            {
+                animationController.SetTrigger("landed");
+                print("hi");
+            }
         }
 
         private void UpdateMovement(Vector3 moveDirection, float deltaTime)
@@ -90,6 +103,7 @@ namespace MenteBacata.ScivoloCharacterControllerDemo
                     {
                         HurdlesSoundManager.Instance.shortjump.Play();
                     }
+                    animationController.SetTrigger("shortJump");
                 }
                 else if (Input.GetKeyDown(KeyCode.RightArrow))
                 {
@@ -98,6 +112,7 @@ namespace MenteBacata.ScivoloCharacterControllerDemo
                     {
                         HurdlesSoundManager.Instance.jump.Play();
                     }
+                    animationController.SetTrigger("highJump");
                 }
 
                 if (Input.GetKeyDown(KeyCode.UpArrow))
