@@ -32,6 +32,8 @@ public class Pitcher : MonoBehaviour
             anim.Play("PitcherPitch");
             BallsPitchedCounter.scoreValue1++;
             yield return new WaitForSeconds(AnimationDelay);
+            CameraFollowBall.Instance.RevertToInitialPosition();
+            yield return new WaitForSeconds(AnimationDelay);
             HitBallAtTarget();
         }
     }

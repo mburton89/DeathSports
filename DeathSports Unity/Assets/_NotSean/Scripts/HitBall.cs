@@ -81,9 +81,12 @@ public class HitBall : MonoBehaviour
         }
 
         Vector3 directionToHit = targetPosition - transform.position;
-        ballRigidbody.AddForce(directionToHit.normalized * hitSpeed * powerMeter.fillAmount);
+        float newHitSpeed = hitSpeed + (powerMeter.fillAmount * 2000);
+        ballRigidbody.AddForce(directionToHit.normalized * newHitSpeed);
         ballRigidbody.AddForce(Vector3.up * (yForce * Mathf.Abs(directionToHit.magnitude)));
         Destroy(ballToHit, 3);
+
+        CameraFollowBall.Instance.LookAt(ballToHit.transform);
     }
 
     /*IEnumerator ToggleCamera()
