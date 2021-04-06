@@ -21,7 +21,7 @@ public class AutoAimTarget : MonoBehaviour
         if (collision.gameObject.tag == "Ball")
         {
             Instantiate(Resources.Load("Explosion") as GameObject, transform.position, transform.rotation, null);
-            Destroy(transform.parent.gameObject);
+            //Destroy(transform.parent.gameObject);
             PeopleHit.scoreValue++;
         }
     }
@@ -31,7 +31,7 @@ public class AutoAimTarget : MonoBehaviour
         if (other.gameObject.tag == "Ball")
         {
             Instantiate(Resources.Load("Explosion") as GameObject, transform.position, transform.rotation, null);
-            Destroy(transform.parent.gameObject);
+            //Destroy(transform.parent.gameObject);
             PeopleHit.scoreValue++;
         }
     }
