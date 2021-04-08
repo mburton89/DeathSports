@@ -7,6 +7,7 @@ public class SwimSoundManager : MonoBehaviour
     public static SwimSoundManager Instance;
     public AudioSource music;
     public AudioSource Swim;
+    public AudioSource splode;
 
 
     public List<AudioSource> announcerSwimDeathLines;

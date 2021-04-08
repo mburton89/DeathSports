@@ -20,6 +20,7 @@ public class SwimTNT : MonoBehaviour
             swimmerRigidBody.AddExplosionForce(1500f, transform.position, 50f);
             swimmerRigidBody.AddForce(Vector3.up * 400f);
             collision.gameObject.GetComponent<Swimmer>().enabled = false;
+            SwimSoundManager.Instance.splode.Play();
             //TODO Play Explosion Sound
             //TODO Restart the scene after 2 seconds
         }

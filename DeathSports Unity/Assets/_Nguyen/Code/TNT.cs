@@ -9,6 +9,7 @@ public class TNT : MonoBehaviour
     public float radius = 5.0f;
     public float upForce = 1.0f;
     public Swimmer swimmer;
+    public AudioSource splode;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +25,9 @@ public class TNT : MonoBehaviour
             print("BOOM!");
             Detonate();
             swimmer.enabled = false;
+            SwimSoundManager.Instance.splode.Play();
         }
+       
     }
 
     void Detonate()

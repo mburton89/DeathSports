@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Swimmer : MonoBehaviour
 {
+    public static SwimSoundManager Instance;
     public KeyCode LeftArm;
     public KeyCode RightArm;
     public float swimspeed; 
