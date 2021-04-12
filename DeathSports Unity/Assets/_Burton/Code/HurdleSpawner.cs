@@ -7,6 +7,7 @@ public class HurdleSpawner : MonoBehaviour
 {
     [SerializeField] private HurdleObstacle _hurdlePrefab;
     [SerializeField] private HurdleObstacle _raptorPrefab;
+    [SerializeField] private HurdleObstacle _polePrefab;
     [SerializeField] private Transform _hurdleSpawnPoint1;
     [SerializeField] private Transform _hurdleSpawnPoint2;
     [SerializeField] private Transform _hurdleSpawnPoint3;
@@ -58,25 +59,53 @@ public class HurdleSpawner : MonoBehaviour
         }
         else if (rand == 1 || rand == 2) //spawn double hurdle
         {
-            SpawnHurdlesRow();
+            SpawnHurdlesRow(true);
             yield return new WaitForSeconds(_spawnRate / 2);
-            SpawnHurdlesRow();
+            SpawnHurdlesRow(false);
         }
         else //spawn one hurdle
         {
-            SpawnHurdlesRow();
+            SpawnHurdlesRow(true);
         }
         yield return new WaitForSeconds(_spawnRate);
         StartCoroutine(SpawnObject());
     }
 
-    void SpawnHurdlesRow()
+    void SpawnHurdlesRow(bool canSpawnPole)
     {
-        HurdleObstacle hurdle1 = Instantiate(_hurdlePrefab, _hurdleSpawnPoint1.position, _hurdleSpawnPoint1.rotation, _hurdleSpawnPoint1) as HurdleObstacle;
+        int rand = Random.Range(0, 10);
+
+        HurdleObstacle hurdle1 = new HurdleObstacle();
+        if (rand == 0 && canSpawnPole)
+        {
+            hurdle1 = Instantiate(_polePrefab, _hurdleSpawnPoint1.position, _hurdleSpawnPoint1.rotation, _hurdleSpawnPoint1) as HurdleObstacle;
+        }
+        else
+        {
+            hurdle1 = Instantiate(_hurdlePrefab, _hurdleSpawnPoint1.position, _hurdleSpawnPoint1.rotation, _hurdleSpawnPoint1) as HurdleObstacle;
+        }
         hurdle1.Init(-1, _objectSpeed * 4);
-        HurdleObstacle hurdle2 = Instantiate(_hurdlePrefab, _hurdleSpawnPoint2.position, _hurdleSpawnPoint2.rotation, _hurdleSpawnPoint2) as HurdleObstacle;
+
+        HurdleObstacle hurdle2 = new HurdleObstacle();
+        if (rand == 1 && canSpawnPole)
+        {
+            hurdle2 = Instantiate(_polePrefab, _hurdleSpawnPoint2.position, _hurdleSpawnPoint2.rotation, _hurdleSpawnPoint2) as HurdleObstacle;
+        }
+        else
+        {
+            hurdle2 = Instantiate(_hurdlePrefab, _hurdleSpawnPoint2.position, _hurdleSpawnPoint2.rotation, _hurdleSpawnPoint2) as HurdleObstacle;
+        }
         hurdle2.Init(-1, _objectSpeed * 4);
-        HurdleObstacle hurdle3 = Instantiate(_hurdlePrefab, _hurdleSpawnPoint3.position, _hurdleSpawnPoint3.rotation, _hurdleSpawnPoint3) as HurdleObstacle;
+
+        HurdleObstacle hurdle3 = new HurdleObstacle();
+        if (rand == 2 && canSpawnPole)
+        {
+            hurdle3 = Instantiate(_polePrefab, _hurdleSpawnPoint3.position, _hurdleSpawnPoint3.rotation, _hurdleSpawnPoint3) as HurdleObstacle;
+        }
+        else
+        {
+            hurdle3 = Instantiate(_hurdlePrefab, _hurdleSpawnPoint3.position, _hurdleSpawnPoint3.rotation, _hurdleSpawnPoint3) as HurdleObstacle;
+        }
         hurdle3.Init(-1, _objectSpeed * 4);
     }
 }

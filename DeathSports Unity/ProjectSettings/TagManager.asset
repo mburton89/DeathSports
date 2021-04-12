@@ -8,6 +8,7 @@ TagManager:
   - Hurdle
   - Target
   - SecondaryCamera
+  - Ground
   layers:
   - Default
   - TransparentFX
