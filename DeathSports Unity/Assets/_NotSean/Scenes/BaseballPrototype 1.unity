@@ -1252,6 +1252,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 25c824cf681bbb34f940105b95243665, type: 3}
   m_PrefabInstance: {fileID: 1247766750}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &390545978 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 25c824cf681bbb34f940105b95243665, type: 3}
+  m_PrefabInstance: {fileID: 1247766750}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &390545979 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 25c824cf681bbb34f940105b95243665, type: 3}
@@ -1276,7 +1281,7 @@ MonoBehaviour:
   SpawnTime: 3
   AnimationDelay: 0.5
   AnimationIdleDelay: 1
-  anim: {fileID: 0}
+  anim: {fileID: 390545978}
 --- !u!1001 &400070892
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4687,7 +4692,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0106556954bc8fc4f9d68011bea823d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 0}
+  anim: {fileID: 5866666020765406002}
 --- !u!4 &1409559801 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9215729897264086170, guid: 65f759ca4cf5c394e880d677b8fabca3, type: 3}
@@ -5757,7 +5762,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1779256646}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &1779256648
 Camera:
   m_ObjectHideFlags: 0

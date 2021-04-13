@@ -13,7 +13,7 @@ public class AutoAimExample : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonUp(1))
+        if (Input.GetMouseButtonUp(0))
         {
             HitBallAtTarget();
         }

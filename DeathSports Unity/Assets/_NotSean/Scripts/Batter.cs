@@ -9,7 +9,6 @@ public class Batter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        anim = GetComponent<Animator>();
         anim.Play("BatterIdle");
     }
 
@@ -19,7 +18,14 @@ public class Batter : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             anim.Play("BatterSwing");
-            anim.Play("BatterIdle");
+
+            StartCoroutine(Delay());
         }
+    }
+
+    IEnumerator Delay()
+    {
+        yield return new WaitForSeconds(1.05f);
+        anim.Play("BatterIdle");
     }
 }
