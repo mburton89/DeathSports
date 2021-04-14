@@ -33,16 +33,8 @@ public class RotatePlayer : MonoBehaviour
         {
             // -90 is the rotation, 0.3f is the speed of the rotation
             StartCoroutine(RotateMe(Vector3.up * -90, 0.3f));
+
+
         }
-    }
-
-    IEnumerator resetPlayerPosition()
-    {
-        yield return new WaitForSeconds(delayTime);
-    }
-
-    void resetPlayer()
-    {
-        transform.Rotate(directionToRotate * rotationSpeed * Time.deltaTime);
     }
 }

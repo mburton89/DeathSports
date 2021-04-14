@@ -11,11 +11,17 @@ public class AiPatrol : MonoBehaviour
     public Transform[] moveSpots;
     private int randomSpot;
 
+    public Animator anim;
+
     // Start is called before the first frame update
     void Start()
     {
         waitTime = startWaitTime;
         randomSpot = Random.Range(0, moveSpots.Length);
+
+        anim = GetComponent<Animator>();
+
+        anim.Play("FielderRun");
     }
 
     // Update is called once per frame
@@ -23,15 +29,17 @@ public class AiPatrol : MonoBehaviour
     {
         transform.position = Vector3.MoveTowards(transform.position, moveSpots[randomSpot].position, speed * Time.deltaTime);
 
-        if(Vector3.Distance(transform.position, moveSpots[randomSpot].position) < 0.2f)
+        if (Vector3.Distance(transform.position, moveSpots[randomSpot].position) < 0.1f)
         {
-            if(waitTime <= 0)
+            if (waitTime <= 0)
             {
+                anim.Play("FielderRun");
                 randomSpot = Random.Range(0, moveSpots.Length);
                 waitTime = startWaitTime;
             }
             else
             {
+                anim.Play("FielderIdle");
                 waitTime -= Time.deltaTime;
             }
         }

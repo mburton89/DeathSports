@@ -9,34 +9,40 @@ public class HurdlesSoundManager : MonoBehaviour
     public AudioSource jump;
     public AudioSource splode;
     public AudioSource shortjump;
-   
-
+  
     public List<AudioSource> announcerDeathLines;
     public List<AudioSource> announcerRaptorLines;
 
+    [HideInInspector] public bool canPlaySound;
+
     private void Awake()
     {
+        
         DontDestroyOnLoad(gameObject);
         if (Instance != null)
         {
+            Instance.canPlaySound = true;
             Destroy(gameObject);
         }
         else
         {
             Instance = this;
+            canPlaySound = true;
         }
     }
 
     public void PlayRandomAnnouncerDeathLine()
     {
+        if (!canPlaySound) return;
         int rand = Random.Range(0, announcerDeathLines.Count);
         announcerDeathLines[rand].Play();
-        //replace  announcerDeathLines with annoucerRaptorDeathLines
+        canPlaySound = false;
     }
     public void PlayRandomRaptorDeathLine()
     {
+        if (!canPlaySound) return;
         int rand = Random.Range(0, announcerRaptorLines.Count);
         announcerRaptorLines[rand].Play();
-        //replace  announcerDeathLines with annoucerRaptorDeathLines
+        canPlaySound = false;
     }
 }
