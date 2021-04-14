@@ -36,8 +36,8 @@ public class Pitcher : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(SpawnTime);
-            anim.Play("PitcherPitch");
+            anim.Play("PitcherPitch");          
+            yield return new WaitForSeconds(SpawnTime / 2);
             anim.Play("PitchIdle");
         }
     }
