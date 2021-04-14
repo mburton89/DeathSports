@@ -11,6 +11,7 @@ public class Pitcher : MonoBehaviour
     public float hitSpeed;
     public float yForce;
     public float SpawnTime = 3f;
+    public float startDelay = 0.5f;
 
     public Animator anim;
 
@@ -24,6 +25,8 @@ public class Pitcher : MonoBehaviour
 
     IEnumerator BaseballGenerator()
     {
+        yield return new WaitForSeconds(startDelay);
+
         while (true)
         {
             yield return new WaitForSeconds(SpawnTime);
@@ -34,6 +37,8 @@ public class Pitcher : MonoBehaviour
 
     IEnumerator Animations()
     {
+        yield return new WaitForSeconds(SpawnTime);
+
         while (true)
         {
             anim.Play("PitcherPitch");          

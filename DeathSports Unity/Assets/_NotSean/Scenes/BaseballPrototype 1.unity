@@ -1279,8 +1279,7 @@ MonoBehaviour:
   hitSpeed: 2000
   yForce: 5.6
   SpawnTime: 3
-  AnimationDelay: 0.5
-  AnimationIdleDelay: 1
+  startDelay: 0.5
   anim: {fileID: 390545978}
 --- !u!1001 &400070892
 PrefabInstance:
