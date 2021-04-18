@@ -14,7 +14,7 @@ public class HurdlesGameManager : MonoBehaviour
 
     void Awake()
     {
-        Time.timeScale = 1.1f;
+        Time.timeScale = 1.0f;
         Instance = this;
     }
 
