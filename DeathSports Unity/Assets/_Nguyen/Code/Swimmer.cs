@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Swimmer : MonoBehaviour
 {
+    public static SwimSoundManager Instance;
     public KeyCode LeftArm;
     public KeyCode RightArm;
     public float swimspeed; 
@@ -30,6 +31,11 @@ public class Swimmer : MonoBehaviour
             _rb.AddRelativeForce(Vector3.right * swimspeed);
             //Twist Right
             _rb.AddTorque(new Vector3(0, 1, 0) * torqueMultiplier);
+
+            if (SwimSoundManager.Instance != null)
+            {
+                SwimSoundManager.Instance.Swim.Play();
+            }
         }
 
         else if (Input.GetKeyDown(RightArm))
@@ -37,6 +43,11 @@ public class Swimmer : MonoBehaviour
             _rb.AddRelativeForce(Vector3.right * swimspeed);
             //Twist Left 
             _rb.AddTorque(new Vector3(0, -1, 0) * torqueMultiplier);
+
+            if (SwimSoundManager.Instance != null)
+            {
+                SwimSoundManager.Instance.Swim.Play();
+            }
         }
 
         SwimHUD.Instance.UpdateFillBar(transform.position.x);
