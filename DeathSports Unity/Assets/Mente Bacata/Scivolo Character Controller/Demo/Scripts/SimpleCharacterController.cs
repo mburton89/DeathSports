@@ -69,7 +69,6 @@ namespace MenteBacata.ScivoloCharacterControllerDemo
             if (collision.gameObject.tag == "Ground")
             {
                 animationController.SetTrigger("landed");
-                print("hi");
             }
         }
 
@@ -87,16 +86,16 @@ namespace MenteBacata.ScivoloCharacterControllerDemo
 
             SetGroundedIndicatorColor(isGrounded);
 
-            if (isGrounded && Input.GetButtonDown("Jump"))
-            {
-                verticalSpeed = jumpSpeed;
-                nextUngroundedTime = -1f;
-                isGrounded = false;
-            }
+            //if (isGrounded && Input.GetButtonDown("Jump"))
+            //{
+            //    verticalSpeed = jumpSpeed;
+            //    nextUngroundedTime = -1f;
+            //    isGrounded = false;
+            //}
 
             if (isGrounded)
             {
-                if (Input.GetKeyDown(KeyCode.LeftArrow))
+                if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
                 {
                     verticalSpeed = jumpSpeed * 1.0f;
                     if (HurdlesSoundManager.Instance != null)
@@ -105,7 +104,7 @@ namespace MenteBacata.ScivoloCharacterControllerDemo
                     }
                     animationController.SetTrigger("shortJump");
                 }
-                else if (Input.GetKeyDown(KeyCode.RightArrow))
+                else if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
                 {
                     verticalSpeed = jumpSpeed * 1.5f;
                     if (HurdlesSoundManager.Instance != null)
@@ -115,11 +114,11 @@ namespace MenteBacata.ScivoloCharacterControllerDemo
                     animationController.SetTrigger("highJump");
                 }
 
-                if (Input.GetKeyDown(KeyCode.UpArrow))
+                if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
                 {
                     MoveUpSlot();
                 }
-                else if (Input.GetKeyDown(KeyCode.DownArrow))
+                else if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
                 {
                     MoveDownSlot();
                 }

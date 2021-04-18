@@ -22,7 +22,7 @@ public class HurdleObstacle : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            Instantiate(Resources.Load("Explosion") as GameObject, transform.position, transform.rotation, null);
+            Instantiate(Resources.Load("ExplosionWithText") as GameObject, transform.position, transform.rotation, null);
             Destroy(gameObject);
             collision.gameObject.GetComponent<Rigidbody>().isKinematic = false;
             collision.gameObject.GetComponent<GroundDetector>().enabled = false;
