@@ -10,7 +10,7 @@ public class Swimmer : MonoBehaviour
     public float swimspeed; 
     public float torqueMultiplier; 
     private Rigidbody _rb;
-    public static SwimGameManager Instance;
+    //public static SwimGameManager Instance;
 
     // Start is called before the first frame update
     void Start()
