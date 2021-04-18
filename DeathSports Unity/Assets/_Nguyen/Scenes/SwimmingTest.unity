@@ -13972,6 +13972,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Swimmer
       objectReference: {fileID: 0}
+    - target: {fileID: 2110513940063572219, guid: 6f5514de07e06e34db47580ffb93f4b9, type: 3}
+      propertyPath: ForwardArms
+      value: 273
+      objectReference: {fileID: 0}
+    - target: {fileID: 2110513940063572219, guid: 6f5514de07e06e34db47580ffb93f4b9, type: 3}
+      propertyPath: torqueMultiplier
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 2110513940063572223, guid: 6f5514de07e06e34db47580ffb93f4b9, type: 3}
       propertyPath: m_RootOrder
       value: 10
