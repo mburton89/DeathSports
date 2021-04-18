@@ -11,30 +11,39 @@ public class Pitcher : MonoBehaviour
     public float hitSpeed;
     public float yForce;
     public float SpawnTime = 3f;
-    public float AnimationDelay = 0.5f;
-    public float AnimationIdleDelay = 1f;
+    public float startDelay = 0.5f;
 
     public Animator anim;
 
     void Start()
     {
-        StartCoroutine(BaseballGenerator());
-
-        anim = GetComponent<Animator>();
         anim.Play("PitchIdle");
+
+        StartCoroutine(BaseballGenerator());
+        StartCoroutine(Animations());
     }
 
     IEnumerator BaseballGenerator()
     {
+        yield return new WaitForSeconds(startDelay);
+
         while (true)
         {
             yield return new WaitForSeconds(SpawnTime);
-            anim.Play("PitcherPitch");
-            BallsPitchedCounter.scoreValue1++;
-            yield return new WaitForSeconds(AnimationDelay);
-            CameraFollowBall.Instance.RevertToInitialPosition();
-            yield return new WaitForSeconds(AnimationDelay);
             HitBallAtTarget();
+            BallsPitchedCounter.scoreValue1++;
+        }
+    }
+
+    IEnumerator Animations()
+    {
+        yield return new WaitForSeconds(SpawnTime);
+
+        while (true)
+        {
+            anim.Play("PitcherPitch");          
+            yield return new WaitForSeconds(SpawnTime / 2);
+            anim.Play("PitchIdle");
         }
     }
 
