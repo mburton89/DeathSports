@@ -11,4 +11,9 @@ public class BaseballBall : MonoBehaviour
             CameraFollowBall.Instance.ballHasBeenHit = false;
         }
     }
+
+    void Update()
+    {
+        transform.Rotate(new Vector3(.5f, .7f, 1));
+    }
 }
