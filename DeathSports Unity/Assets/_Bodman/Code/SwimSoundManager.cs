@@ -15,7 +15,7 @@ public class SwimSoundManager : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
         if (Instance != null)
         {
             Destroy(gameObject);
