@@ -31,7 +31,7 @@ public class Swimmer : MonoBehaviour
         {
             //_rb.AddRelativeForce(Vector3.right * swimspeed);
             //Twist Right
-            _rb.AddTorque(new Vector3(0, 1, 0) * torqueMultiplier);
+            _rb.AddTorque(new Vector3(0, -1, 0) * torqueMultiplier);
 
             if (SwimSoundManager.Instance != null)
             {
@@ -43,7 +43,7 @@ public class Swimmer : MonoBehaviour
         {
             //_rb.AddRelativeForce(Vector3.right * swimspeed);
             //Twist Left 
-            _rb.AddTorque(new Vector3(0, -1, 0) * torqueMultiplier);
+            _rb.AddTorque(new Vector3(0, 1, 0) * torqueMultiplier);
 
             if (SwimSoundManager.Instance != null)
             {
@@ -54,6 +54,11 @@ public class Swimmer : MonoBehaviour
         else if (Input.GetKeyDown(ForwardArms))
         {
             _rb.AddRelativeForce(Vector3.right * swimspeed);
+
+            if (SwimSoundManager.Instance != null)
+            {
+                SwimSoundManager.Instance.Swim.Play();
+            }
         }
 
         SwimHUD.Instance.UpdateFillBar(transform.position.x);

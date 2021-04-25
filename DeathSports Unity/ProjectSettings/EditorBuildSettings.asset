@@ -6,15 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_DeBrunce/Scenes/Main Menu.unity
-    guid: 65eeea9f711cadd4cb48bd26943333ad
-  - enabled: 1
-    path: Assets/_NotSean/Scenes/BaseballPrototype.unity
-    guid: 519f0d2d3bc599646b0cc9182f6d86ef
-  - enabled: 1
-    path: Assets/_Nguyen/Scenes/SwimmingTest.unity
-    guid: 1dd92b209aac013409032fceb01d5578
+    path: Assets/_Burton/Scenes/SimpleMainMenu.unity
+    guid: aeac52a90a1600a44a16f636d9decc59
   - enabled: 1
     path: Assets/_Burton/Scenes/HurdlesPrototype.unity
     guid: b7c92180c6f3ce04786846fdd5056a47
+  - enabled: 1
+    path: Assets/_NotSean/Scenes/BaseballPrototype 1.unity
+    guid: 8f1cb349852dd404b94843a866f8884a
+  - enabled: 1
+    path: Assets/_Nguyen/Scenes/SwimmingTest.unity
+    guid: 1dd92b209aac013409032fceb01d5578
   m_configObjects: {}

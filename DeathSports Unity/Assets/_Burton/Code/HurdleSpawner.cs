@@ -39,20 +39,14 @@ public class HurdleSpawner : MonoBehaviour
             {
                 HurdleObstacle raptor = Instantiate(_raptorPrefab, _raptorSpawnPoint.position, _raptorSpawnPoint.rotation, _raptorSpawnPoint) as HurdleObstacle;
                 raptor.Init(1, _objectSpeed * raptorSpeed);
-                HurdleObstacle raptor2 = Instantiate(_raptorPrefab, _raptorSpawnPoint2.position, _raptorSpawnPoint2.rotation, _raptorSpawnPoint2) as HurdleObstacle;
-                raptor2.Init(1, _objectSpeed * raptorSpeed);
             }
             else if (randS == 1)
             {
-                HurdleObstacle raptor = Instantiate(_raptorPrefab, _raptorSpawnPoint.position, _raptorSpawnPoint.rotation, _raptorSpawnPoint) as HurdleObstacle;
-                raptor.Init(1, _objectSpeed * raptorSpeed);
                 HurdleObstacle raptor2 = Instantiate(_raptorPrefab, _raptorSpawnPoint3.position, _raptorSpawnPoint3.rotation, _raptorSpawnPoint3) as HurdleObstacle;
                 raptor2.Init(1, _objectSpeed * raptorSpeed);
             }
             else
             {
-                HurdleObstacle raptor = Instantiate(_raptorPrefab, _raptorSpawnPoint3.position, _raptorSpawnPoint3.rotation, _raptorSpawnPoint3) as HurdleObstacle;
-                raptor.Init(1, _objectSpeed * raptorSpeed);
                 HurdleObstacle raptor2 = Instantiate(_raptorPrefab, _raptorSpawnPoint2.position, _raptorSpawnPoint2.rotation, _raptorSpawnPoint2) as HurdleObstacle;
                 raptor2.Init(1, _objectSpeed * raptorSpeed);
             }
