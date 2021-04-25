@@ -9,8 +9,7 @@ public class HitBall : MonoBehaviour
     public Image powerMeter;
     //public float forceMultiplier;
 
-    public Transform[] target;
-    private int randomTarget;
+    [HideInInspector] public AutoAimTarget[] autoAimTargets;
 
     //public Transform target;
     public GameObject autoAimBallPrefab;
@@ -65,28 +64,27 @@ public class HitBall : MonoBehaviour
 
     void HitBallAtTargetMultiple(GameObject ballToHit)
     {
+        BaseballSoundManager.Instance.baseballhit.Play();
+
         Rigidbody ballRigidbody = ballToHit.GetComponent<Rigidbody>();
         ballRigidbody.velocity = Vector3.zero;
 
         Vector3 targetPosition = new Vector3();
-        if (target[randomTarget].GetComponent<AutoAimTarget>())
-        {
-            float leadMultiplierMultiplier;
-            leadMultiplierMultiplier = (target[randomTarget].position - transform.position).magnitude;
-            targetPosition = target[randomTarget].position + (target[randomTarget].GetComponent<AutoAimTarget>().directionMovingTowards * (leadMultiplier * Mathf.Abs(leadMultiplierMultiplier)));
-        }
-        else
-        {
-            targetPosition = target[randomTarget].position;
-        }
+
+        autoAimTargets = FindObjectsOfType<AutoAimTarget>();
+        int randomTargetIndex = Random.Range(0, autoAimTargets.Length);
+
+        float leadMultiplierMultiplier;
+        leadMultiplierMultiplier = (autoAimTargets[randomTargetIndex].transform.position - transform.position).magnitude;
+        targetPosition = autoAimTargets[randomTargetIndex].transform.position + (autoAimTargets[randomTargetIndex].GetComponent<AutoAimTarget>().directionMovingTowards * (leadMultiplier * Mathf.Abs(leadMultiplierMultiplier)));
 
         Vector3 directionToHit = targetPosition - transform.position;
-        float newHitSpeed = hitSpeed + (powerMeter.fillAmount * 2000);
+        float newHitSpeed = (hitSpeed) + (powerMeter.fillAmount * 5000);
         ballRigidbody.AddForce(directionToHit.normalized * newHitSpeed);
         ballRigidbody.AddForce(Vector3.up * (yForce * Mathf.Abs(directionToHit.magnitude)));
         Destroy(ballToHit, 3);
 
-        CameraFollowBall.Instance.LookAt(ballToHit.transform);
+        CameraFollowBall.Instance.LookAt(ballToHit.transform, newHitSpeed);
     }
 
     /*IEnumerator ToggleCamera()

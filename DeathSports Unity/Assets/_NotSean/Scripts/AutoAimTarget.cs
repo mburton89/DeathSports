@@ -20,9 +20,11 @@ public class AutoAimTarget : MonoBehaviour
     {
         if (collision.gameObject.tag == "Ball")
         {
-            Instantiate(Resources.Load("Explosion") as GameObject, transform.position, transform.rotation, null);
-            //Destroy(transform.parent.gameObject);
+            Instantiate(Resources.Load("ExplosionWithText") as GameObject, transform.position, transform.rotation, null);
             PeopleHit.scoreValue++;
+            Destroy(transform.parent.gameObject);
+            BaseballSoundManager.Instance.PlayRandomAnnouncerBaseballDeathLine();
+            //CameraFollowBall.Instance.DelayRevertToInitialPosition();
         }
     }
 
@@ -30,9 +32,11 @@ public class AutoAimTarget : MonoBehaviour
     {
         if (other.gameObject.tag == "Ball")
         {
-            Instantiate(Resources.Load("Explosion") as GameObject, transform.position, transform.rotation, null);
-            //Destroy(transform.parent.gameObject);
+            Instantiate(Resources.Load("ExplosionWithText") as GameObject, transform.position, transform.rotation, null);
             PeopleHit.scoreValue++;
+            Destroy(transform.parent.gameObject);
+            BaseballSoundManager.Instance.PlayRandomAnnouncerBaseballDeathLine();
+            //CameraFollowBall.Instance.DelayRevertToInitialPosition();
         }
     }
 }

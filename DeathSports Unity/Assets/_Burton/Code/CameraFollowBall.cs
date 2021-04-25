@@ -29,10 +29,13 @@ public class CameraFollowBall : MonoBehaviour
     }
 
     //Handle Ball Getting Hit
-    public void LookAt(Transform transformToLookAt)
+    public void LookAt(Transform transformToLookAt, float hitSpeed)
     {
+        zoomSpeed = hitSpeed / 9000;
+        print(zoomSpeed);
         ballHasBeenHit = true;
         cinemachineVirtualCamera.LookAt = transformToLookAt;
+        DelayRevertToInitialPosition();
     }
 
     public void RevertToInitialPosition()
@@ -40,5 +43,16 @@ public class CameraFollowBall : MonoBehaviour
         ballHasBeenHit = false;
         cinemachineVirtualCamera.m_Lens.FieldOfView = _initialZoomAmount;
         cinemachineVirtualCamera.LookAt = pitcher;
+    }
+
+    public void DelayRevertToInitialPosition()
+    {
+        StartCoroutine(DelayRevertToInitialPositionCo());
+    }
+
+    private IEnumerator DelayRevertToInitialPositionCo()
+    {
+        yield return new WaitForSeconds(1.5f);
+        RevertToInitialPosition();
     }
 }

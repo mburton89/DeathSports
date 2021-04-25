@@ -18,7 +18,7 @@ public class Batter : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             anim.Play("BatterSwing");
-
+            BaseballSoundManager.Instance.swing.Play();
             StartCoroutine(Delay());
         }
     }
