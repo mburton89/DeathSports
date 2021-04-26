@@ -13,6 +13,8 @@ public class Swimmer : MonoBehaviour
     private Rigidbody _rb;
     //public static SwimGameManager Instance;
 
+    [SerializeField] private Animator swimAnimation;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -59,6 +61,16 @@ public class Swimmer : MonoBehaviour
             {
                 SwimSoundManager.Instance.Swim.Play();
             }
+        }
+
+        print(_rb.velocity.magnitude);
+        if (_rb.velocity.magnitude > 1)
+        {
+            swimAnimation.speed = 1;
+        }
+        else
+        {
+            swimAnimation.speed = 0.4f;
         }
 
         SwimHUD.Instance.UpdateFillBar(transform.position.x);

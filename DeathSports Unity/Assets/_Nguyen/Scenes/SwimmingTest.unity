@@ -11917,6 +11917,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8662828077388136173, guid: b8d95790ad7ab5940a73fff49e77b492, type: 3}
   m_PrefabInstance: {fileID: 1758088543}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1774656461 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 25c824cf681bbb34f940105b95243665, type: 3}
+  m_PrefabInstance: {fileID: 904247137}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1783328817 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8662828077388136173, guid: b8d95790ad7ab5940a73fff49e77b492, type: 3}
@@ -14156,6 +14161,10 @@ PrefabInstance:
       propertyPath: ForwardArms
       value: 273
       objectReference: {fileID: 0}
+    - target: {fileID: 2110513940063572219, guid: 6f5514de07e06e34db47580ffb93f4b9, type: 3}
+      propertyPath: swimAnimation
+      value: 
+      objectReference: {fileID: 1774656461}
     - target: {fileID: 2110513940063572219, guid: 6f5514de07e06e34db47580ffb93f4b9, type: 3}
       propertyPath: torqueMultiplier
       value: 50
