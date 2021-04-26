@@ -9265,7 +9265,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startXPos: 32
-  endXPos: -21
+  endXPos: -50
   fill: {fileID: 207870834}
 --- !u!1001 &1365635500
 PrefabInstance:

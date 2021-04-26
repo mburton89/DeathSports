@@ -17,6 +17,6 @@ public class SwimHUD : MonoBehaviour
 
     public void UpdateFillBar(float swimXposition)
     {
-        fill.fillAmount = (startXPos - swimXposition) / 32;
+        fill.fillAmount = (startXPos - swimXposition) / 52;
     }
 }

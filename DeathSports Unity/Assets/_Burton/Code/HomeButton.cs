@@ -18,6 +18,10 @@ public class HomeButton : MonoBehaviour
         {
             Destroy(HurdlesSoundManager.Instance.gameObject);
         }
+        if (SwimSoundManager.Instance != null)
+        {
+            Destroy(SwimSoundManager.Instance.gameObject);
+        }
         SceneManager.LoadScene(0);
     }
 }
