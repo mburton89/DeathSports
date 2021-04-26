@@ -212,7 +212,7 @@ GameObject:
   - component: {fileID: 132155752}
   - component: {fileID: 132155755}
   m_Layer: 5
-  m_Name: Button - Swiming
+  m_Name: Button - Swimming
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -392,7 +392,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Swiming
+  m_text: Swimming
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6a3dbb8cbf3435d439d49c213380dbce, type: 2}
   m_sharedMaterial: {fileID: -6823548993830738413, guid: 6a3dbb8cbf3435d439d49c213380dbce, type: 2}
