@@ -15,7 +15,7 @@ public class Batter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0) || Input.GetKeyUp(KeyCode.Space))
         {
             anim.Play("BatterSwing");
             BaseballSoundManager.Instance.swing.Play();

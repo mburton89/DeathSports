@@ -5,21 +5,18 @@ using UnityEngine.UI;
 
 public class HitBall : MonoBehaviour
 {
-    //public Rigidbody Ball;
     public Image powerMeter;
-    //public float forceMultiplier;
 
     [HideInInspector] public AutoAimTarget[] autoAimTargets;
 
-    //public Transform target;
     public GameObject autoAimBallPrefab;
     public float hitSpeed;
     public float yForce;
     public float leadMultiplier;
-
     public GameObject MainCam;
     public GameObject BallCam;
     public int CamMode;
+    public int BallSpeedFromBat;
 
     void OnTriggerEnter(Collider other)
     {
@@ -34,33 +31,8 @@ public class HitBall : MonoBehaviour
             {
                 CamMode += 1;
             }
-            //StartCoroutine(ToggleCamera());
         }
     }
-
-
-    // No Array
-    /*void HitBallAtTarget()
-    {
-        //Figure out where Target will be
-        Vector3 targetPosition = new Vector3();
-        if (target.GetComponent<AutoAimTarget>())
-        {
-            float leadMultiplierMultiplier;
-            leadMultiplierMultiplier = (target.position - transform.position).magnitude;
-            targetPosition = target.position + (target.GetComponent<AutoAimTarget>().directionMovingTowards * (leadMultiplier * Mathf.Abs(leadMultiplierMultiplier)));
-        }
-        else
-        {
-            targetPosition = target.position;
-        }
-
-        Vector3 directionToHit = targetPosition - transform.position;
-        GameObject newAutoAimBall = Instantiate(autoAimBallPrefab, transform.position, transform.rotation, null) as GameObject;
-        newAutoAimBall.GetComponent<Rigidbody>().AddForce(directionToHit.normalized * hitSpeed * powerMeter.fillAmount);
-        newAutoAimBall.GetComponent<Rigidbody>().AddForce(Vector3.up * (yForce * Mathf.Abs(directionToHit.magnitude)));
-        Destroy(newAutoAimBall, 3);
-    }*/
 
     void HitBallAtTargetMultiple(GameObject ballToHit)
     {
@@ -79,26 +51,11 @@ public class HitBall : MonoBehaviour
         targetPosition = autoAimTargets[randomTargetIndex].transform.position + (autoAimTargets[randomTargetIndex].GetComponent<AutoAimTarget>().directionMovingTowards * (leadMultiplier * Mathf.Abs(leadMultiplierMultiplier)));
 
         Vector3 directionToHit = targetPosition - transform.position;
-        float newHitSpeed = (hitSpeed) + (powerMeter.fillAmount * 5000);
+        float newHitSpeed = (hitSpeed) + (powerMeter.fillAmount * BallSpeedFromBat);
         ballRigidbody.AddForce(directionToHit.normalized * newHitSpeed);
         ballRigidbody.AddForce(Vector3.up * (yForce * Mathf.Abs(directionToHit.magnitude)));
         Destroy(ballToHit, 3);
 
         CameraFollowBall.Instance.LookAt(ballToHit.transform, newHitSpeed);
     }
-
-    /*IEnumerator ToggleCamera()
-    {
-        yield return new WaitForSeconds(0.01f);
-        if (CamMode == 0)
-        {
-            MainCam.SetActive(true);
-            BallCam.SetActive(false);
-        }
-        if (CamMode == 1)
-        {
-            MainCam.SetActive(false);
-            BallCam.SetActive(true);
-        }
-    }*/
 }
