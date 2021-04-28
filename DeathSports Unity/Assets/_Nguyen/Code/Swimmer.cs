@@ -75,5 +75,6 @@ public class Swimmer : MonoBehaviour
 
         SwimHUD.Instance.UpdateFillBar(transform.position.x);
     }
+
 }
 
