@@ -25,6 +25,7 @@ public class AutoAimTarget : MonoBehaviour
             Destroy(transform.parent.gameObject);
             BaseballSoundManager.Instance.PlayRandomAnnouncerBaseballDeathLine();
             //CameraFollowBall.Instance.DelayRevertToInitialPosition();
+            BaseballSoundManager.Instance.PlayRandomAnnouncerClassLine();
         }
     }
 
@@ -37,6 +38,7 @@ public class AutoAimTarget : MonoBehaviour
             Destroy(transform.parent.gameObject);
             BaseballSoundManager.Instance.PlayRandomAnnouncerBaseballDeathLine();
             //CameraFollowBall.Instance.DelayRevertToInitialPosition();
+            BaseballSoundManager.Instance.PlayRandomAnnouncerClassLine();
         }
     }
 }

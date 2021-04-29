@@ -13,6 +13,7 @@ public class BaseballSoundManager : MonoBehaviour
     public AudioSource Billboardsplode;
 
     public List<AudioSource> announcerBaseballDeathLines;
+    public List<AudioSource> announcerClassLines;
 
     private void Awake()
     {
@@ -31,5 +32,11 @@ public class BaseballSoundManager : MonoBehaviour
     {
         int rand = Random.Range(0, announcerBaseballDeathLines.Count);
         announcerBaseballDeathLines[rand].Play();
+    }
+
+    public void PlayRandomAnnouncerClassLine()
+    {
+        int rand = Random.Range(0, announcerClassLines.Count);
+        announcerClassLines[rand].Play();
     }
 }
