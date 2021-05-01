@@ -22,6 +22,7 @@ public class SimpleMainMenu : MonoBehaviour
 
     void LoadBaseball()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(2);
     }
 
