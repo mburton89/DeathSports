@@ -21,7 +21,7 @@ public class AutoAimTarget : MonoBehaviour
         if (collision.gameObject.tag == "Ball")
         {
             Instantiate(Resources.Load("ExplosionWithText") as GameObject, transform.position, transform.rotation, null);
-            PeopleHit.scoreValue++;
+            PeopleHit.Instance.AddPoint();
             Destroy(transform.parent.gameObject);
             BaseballSoundManager.Instance.PlayRandomAnnouncerBaseballDeathLine();
             //CameraFollowBall.Instance.DelayRevertToInitialPosition();
@@ -33,7 +33,7 @@ public class AutoAimTarget : MonoBehaviour
         if (other.gameObject.tag == "Ball")
         {
             Instantiate(Resources.Load("ExplosionWithText") as GameObject, transform.position, transform.rotation, null);
-            PeopleHit.scoreValue++;
+            PeopleHit.Instance.AddPoint();
             Destroy(transform.parent.gameObject);
             BaseballSoundManager.Instance.PlayRandomAnnouncerBaseballDeathLine();
             //CameraFollowBall.Instance.DelayRevertToInitialPosition();

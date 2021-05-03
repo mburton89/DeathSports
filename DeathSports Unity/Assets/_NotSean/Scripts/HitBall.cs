@@ -18,8 +18,6 @@ public class HitBall : MonoBehaviour
     public int CamMode;
     public int BallSpeedFromBat;
 
-    public GameObject RestartMenu;
-
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Ball")
@@ -59,12 +57,6 @@ public class HitBall : MonoBehaviour
         Destroy(ballToHit, 3);
 
         CameraFollowBall.Instance.LookAt(ballToHit.transform, newHitSpeed);
-
-        if (autoAimTargets.Length == 1)
-        {
-            Time.timeScale = 0;
-            RestartMenu.SetActive(true);
-        }
     }
 }
 

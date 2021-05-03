@@ -3176,6 +3176,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3b27f490109f64fb6eea3f7dcf60c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreValue: 0
+  RestartMenu: {fileID: 811299015}
 --- !u!114 &497184241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3196,7 +3198,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'People Hit: 99'
+  m_text: 'People Hit: 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6a3dbb8cbf3435d439d49c213380dbce, type: 2}
   m_sharedMaterial: {fileID: -6823548993830738413, guid: 6a3dbb8cbf3435d439d49c213380dbce, type: 2}
@@ -4208,7 +4210,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 673061488}
-  m_LocalRotation: {x: 0.05318403, y: 0.016257254, z: -0.0008659668, w: 0.998452}
+  m_LocalRotation: {x: 0.05318405, y: 0.016257288, z: -0.0008659689, w: 0.998452}
   m_LocalPosition: {x: 259.091, y: 2.596, z: 282.984}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -5673,7 +5675,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Pitches Thrown: 99'
+  m_text: 'Pitches Thrown: 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6a3dbb8cbf3435d439d49c213380dbce, type: 2}
   m_sharedMaterial: {fileID: -6823548993830738413, guid: 6a3dbb8cbf3435d439d49c213380dbce, type: 2}
@@ -11099,7 +11101,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1881854239}
-  m_LocalRotation: {x: 0.05318403, y: 0.016257254, z: -0.0008659668, w: 0.998452}
+  m_LocalRotation: {x: 0.05318405, y: 0.016257288, z: -0.0008659689, w: 0.998452}
   m_LocalPosition: {x: 259.091, y: 2.596, z: 282.984}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -11178,14 +11180,13 @@ MonoBehaviour:
   powerMeter: {fileID: 918466730}
   autoAimTargets: []
   autoAimBallPrefab: {fileID: 4241244161317453255, guid: 518e8da23ace9344f94023c3b67000ac, type: 3}
-  hitSpeed: 1500
+  hitSpeed: 2200
   yForce: 15
   leadMultiplier: 2.35
   MainCam: {fileID: 1881854239}
   BallCam: {fileID: 0}
   CamMode: 0
-  BallSpeedFromBat: 500
-  RestartMenu: {fileID: 811299015}
+  BallSpeedFromBat: 200
 --- !u!136 &1883570902
 CapsuleCollider:
   m_ObjectHideFlags: 0
