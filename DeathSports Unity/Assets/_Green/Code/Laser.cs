@@ -13,7 +13,7 @@ public class Laser : MonoBehaviour
             Instantiate(Resources.Load("Explosion") as GameObject, other.transform.position, transform.rotation, null);
             Destroy(other.gameObject);
 
-            print("LASER HIT");
+            SwimGameManager.Instance.Restart();
         }
     }
 }

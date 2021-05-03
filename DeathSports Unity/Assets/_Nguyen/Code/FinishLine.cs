@@ -13,6 +13,6 @@ public class FinishLine : MonoBehaviour
     {
         GameManager.CompleteLevel();
         swimmer.enabled = false;
-
+        FindObjectOfType<StopwatchFL>().timerActive = false;
     }
 }
