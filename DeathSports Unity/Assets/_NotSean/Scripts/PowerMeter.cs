@@ -17,12 +17,12 @@ public class PowerMeter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) || Input.GetKey(KeyCode.Space))
         {
             PowerActive();
         }
 
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0) || Input.GetKeyUp(KeyCode.Space))
         {
             StartCoroutine(Delay());
         }
@@ -67,7 +67,7 @@ public class PowerMeter : MonoBehaviour
 
     IEnumerator Delay()
     {
-        yield return new WaitForSeconds(1.3f);
+        yield return new WaitForSeconds(1.1f);
         imagePowerUp.fillAmount = 0;
         amountPower = 0.0f;
     }

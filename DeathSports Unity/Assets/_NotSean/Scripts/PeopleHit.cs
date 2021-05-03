@@ -5,18 +5,29 @@ using TMPro;
 
 public class PeopleHit : MonoBehaviour
 {
-    public static int scoreValue = 0;
-    TextMeshProUGUI score;
+    public static PeopleHit Instance;
 
-    // Start is called before the first frame update
+    public int scoreValue;
+    TextMeshProUGUI score;
+    private int _maxScore;
+    public GameObject RestartMenu;
+
     void Start()
     {
+        Instance = this;
+        scoreValue = 0;
         score = GetComponent<TextMeshProUGUI>();
+        _maxScore = FindObjectsOfType<AutoAimTarget>().Length;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void AddPoint()
     {
+        scoreValue++;
         score.text = "People Hit:  " + scoreValue;
+        if (scoreValue >= _maxScore)
+        {
+            Time.timeScale = 0;
+            RestartMenu.SetActive(true);
+        }
     }
 }

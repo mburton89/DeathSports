@@ -31,7 +31,7 @@ public class CameraFollowBall : MonoBehaviour
     //Handle Ball Getting Hit
     public void LookAt(Transform transformToLookAt, float hitSpeed)
     {
-        zoomSpeed = hitSpeed / 9000;
+        zoomSpeed = hitSpeed / 30000;
         print(zoomSpeed);
         ballHasBeenHit = true;
         cinemachineVirtualCamera.LookAt = transformToLookAt;
