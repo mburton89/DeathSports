@@ -5,12 +5,17 @@ using TMPro;
 
 public class BallsPitchedCounter : MonoBehaviour
 {
+    public static BallsPitchedCounter Instance;
+
     public static int scoreValue1 = 0;
     TextMeshProUGUI score1;
+    public GameObject RestartMenu;
 
     // Start is called before the first frame update
     void Start()
     {
+        Instance = this;
+        scoreValue1 = 0;
         score1 = GetComponent<TextMeshProUGUI>();
     }
 

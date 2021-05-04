@@ -52,7 +52,7 @@ public class HitBall : MonoBehaviour
 
         Vector3 directionToHit = targetPosition - transform.position;
         float newHitSpeed = (hitSpeed) + (powerMeter.fillAmount * BallSpeedFromBat);
-        ballRigidbody.AddForce(directionToHit.normalized * newHitSpeed);
+        ballRigidbody.AddForce(directionToHit.normalized * (newHitSpeed / 1.3f));
         ballRigidbody.AddForce(Vector3.up * (yForce * Mathf.Abs(directionToHit.magnitude)));
         Destroy(ballToHit, 3);
 
