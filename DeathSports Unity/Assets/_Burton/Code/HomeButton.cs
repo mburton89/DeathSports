@@ -14,6 +14,7 @@ public class HomeButton : MonoBehaviour
 
     void GoHome()
     {
+        Time.timeScale = 1;
         if (HurdlesSoundManager.Instance != null)
         {
             Destroy(HurdlesSoundManager.Instance.gameObject);
