@@ -29,7 +29,7 @@ public class Swimmer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(LeftArm))
+        if (Input.GetKeyDown(LeftArm) || Input.GetKeyDown(KeyCode.A))
         {
             //_rb.AddRelativeForce(Vector3.right * swimspeed);
             //Twist Right
@@ -41,7 +41,7 @@ public class Swimmer : MonoBehaviour
             }
         }
 
-        else if (Input.GetKeyDown(RightArm))
+        else if (Input.GetKeyDown(RightArm) || Input.GetKeyDown(KeyCode.D))
         {
             //_rb.AddRelativeForce(Vector3.right * swimspeed);
             //Twist Left 
@@ -53,7 +53,7 @@ public class Swimmer : MonoBehaviour
             }
         }
 
-        else if (Input.GetKeyDown(ForwardArms))
+        else if (Input.GetKeyDown(ForwardArms) || Input.GetKeyDown(KeyCode.W))
         {
             _rb.AddRelativeForce(Vector3.right * swimspeed);
 

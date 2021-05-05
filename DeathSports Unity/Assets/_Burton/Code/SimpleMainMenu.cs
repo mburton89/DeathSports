@@ -19,6 +19,7 @@ public class SimpleMainMenu : MonoBehaviour
         swimmingButton.onClick.AddListener(LoadSwimming);
         creditsButton.onClick.AddListener(OpenCredits);
         backButton.onClick.AddListener(GoBack);
+        PlayerPrefs.SetInt("showTutorial", 1);
     }
 
     void LoadHurdles()
